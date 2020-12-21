@@ -5,25 +5,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
+import androidx.databinding.DataBindingUtil
 import com.foamkart.FoamkartApp
 import com.foamkart.Helper.SharedPrefData
 import com.foamkart.R
+import com.foamkart.databinding.ActivityDashboardBinding
+import com.foamkart.databinding.ActivityLoginBinding
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+    lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
-        setContentView(R.layout.activity_login)
+//        setContentView(R.layout.activity_login)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-        FoamkartApp.getSharedPreferences(this)
-        FoamkartApp.writeStringPreference(SharedPrefData.PREF_F_name,"name1")
-        Log.e("@@", FoamkartApp.ReadStringPreferences(SharedPrefData.PREF_F_name).toString())
 
-        btn_login.setOnClickListener {
+
+        binding.btnLogin.setOnClickListener {
             startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
         }
-        signuptxt.setOnClickListener {
+        binding.layoutSingup.setOnClickListener {
             startActivity(Intent(this@LoginActivity,SingUp::class.java))
         }
     }

@@ -1,11 +1,13 @@
-package com.foamkart
+package com.foamkart.Fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,15 +16,19 @@ import androidx.viewpager.widget.ViewPager
 import com.foamkart.Activitys.ProductActivity
 import com.foamkart.Adapter.HomePageProductAdapter
 import com.foamkart.Adapter.ViewPagerAdapter
+import com.foamkart.R
+import com.foamkart.databinding.FragmentHomeBinding
 
 
 class Home_Fragment: Fragment() {
 
 
-    var images = intArrayOf(com.foamkart.R.drawable.banner1, com.foamkart.R.drawable.banner1, com.foamkart.R.drawable.banner1)
+    var images = intArrayOf(R.drawable.banner1, R.drawable.banner1, R.drawable.banner1)
     var adapter: HomePageProductAdapter? = null
     lateinit var list:ArrayList<String>
     var linearLayoutManager: LinearLayoutManager? = null
+    lateinit var binding : FragmentHomeBinding
+    lateinit var thiscontext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +38,9 @@ class Home_Fragment: Fragment() {
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
-        var view=inflater.inflate(com.foamkart.R.layout.fragment_home, container, false)
-
+//        var view=inflater.inflate(R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        thiscontext=container!!.context
         list= ArrayList()
 
         list.add("Product")
@@ -47,29 +54,26 @@ class Home_Fragment: Fragment() {
         list.add("AA")
         list.add("AA")
 
-        val viewPager = view?.findViewById(com.foamkart.R.id.viewpager_slider) as ViewPager
-        val mainRecycler = view?.findViewById(com.foamkart.R.id.mainRecycler) as RecyclerView
-        val mainRecycler2 = view?.findViewById(com.foamkart.R.id.mainRecycler2) as RecyclerView
-        val txt_more = view?.findViewById(com.foamkart.R.id.txt_more) as TextView
 
-        txt_more.setOnClickListener {
+
+        binding.txtMore.setOnClickListener {
             startActivity(Intent(context,ProductActivity::class.java))
         }
-        viewPager.adapter = ViewPagerAdapter(context, images)
+        binding.viewpagerSlider.adapter = ViewPagerAdapter(context, images)
 
 
 
         linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        mainRecycler!!.layoutManager = linearLayoutManager
-        mainRecycler!!.itemAnimator = DefaultItemAnimator()
+        binding.mainRecycler!!.layoutManager = linearLayoutManager
+        binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
         adapter = HomePageProductAdapter(list,context!!)
-        mainRecycler.adapter=adapter
+        binding.mainRecycler.adapter=adapter
 
         linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        mainRecycler2!!.layoutManager = linearLayoutManager
-        mainRecycler2!!.itemAnimator = DefaultItemAnimator()
+        binding.mainRecycler2!!.layoutManager = linearLayoutManager
+        binding.mainRecycler2!!.itemAnimator = DefaultItemAnimator()
         adapter = HomePageProductAdapter(list,context!!)
-        mainRecycler2.adapter=adapter
+        binding.mainRecycler2.adapter=adapter
 
 
 
@@ -77,6 +81,6 @@ class Home_Fragment: Fragment() {
 
 
         // Inflate the layout for this fragment
-        return view;
+        return binding.root
     }
 }

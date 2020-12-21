@@ -1,0 +1,467 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:black="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginRight="0dp"
+            android:background="#f2f4f5"
+            android:orientation="vertical"
+            android:scrollbarSize="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_green"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_user_image"
+                    android:clickable="true"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="25dp"
+                    android:foregroundTint="#143215"
+                    android:src="@drawable/user"
+                    android:tint="@color/white_color"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="center|left"
+                    android:layout_marginRight="15dp" />
+
+                <TextView
+                    android:id="@+id/t_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/worksans_medium"
+                    android:text="Hello, Username"
+                    android:textColor="#fff"
+                    android:textSize="13dp" />
+
+            </LinearLayout>
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_Profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_account_circle_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+                            android:id="@+id/profile_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:text="User Profile"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black"
+                            android:clickable="true" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="68dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/c_gray1" />
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_Method"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_payment_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+
+                            android:text="Payment Method"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/c_gray1" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_offer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_local_offer_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:text="Discount , Offers"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_order_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_history_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:text="Order History"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_order_Refund"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_compare_arrows_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:text="Delivery , Refund"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_Aboutus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_language_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+
+                            android:text="About Us"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_faq"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_calendar_today_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+
+                            android:text="FAQ"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_term_condition"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_compare_arrows_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+
+                            android:text="Terms Conditions"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+
+                    <LinearLayout
+                        android:id="@+id/layout_help"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_call_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+
+                            android:text="Help"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_logout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:clickable="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_login_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+
+                            android:text="Logout"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/c_gray1" />
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+</layout>
