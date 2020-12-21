@@ -2,23 +2,27 @@ package com.foamkart.Activitys
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.R
+import com.foamkart.databinding.ActivityDashboardBinding
+import com.foamkart.databinding.ActivityProductBinding
 
 
 class ProductActivity : AppCompatActivity() {
     lateinit var list:ArrayList<String>
     var linearLayoutManager: LinearLayoutManager? = null
     var adapter: ProductListAdapter? = null
+    lateinit var binding: ActivityProductBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product)
-        val mainRecycler = findViewById(R.id.mainRecycler) as RecyclerView
+//        setContentView(R.layout.activity_product)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
 
         list= ArrayList()
 
@@ -36,10 +40,10 @@ class ProductActivity : AppCompatActivity() {
 
 
         linearLayoutManager = GridLayoutManager(this, 2)
-        mainRecycler!!.layoutManager = linearLayoutManager
-        mainRecycler!!.itemAnimator = DefaultItemAnimator()
+        binding.mainRecycler!!.layoutManager = linearLayoutManager
+        binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
         adapter = ProductListAdapter(list, this@ProductActivity)
-        mainRecycler.adapter=adapter
+        binding.mainRecycler.adapter=adapter
 
     }
 }

@@ -5,10 +5,12 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -18,6 +20,7 @@ import com.foamkart.Fragment.WishListFragment
 import com.foamkart.R
 import com.foamkart.databinding.ActivityDashboardBinding
 import kotlinx.android.synthetic.main.activity_dashboard.*
+import kotlinx.android.synthetic.main.activity_splach_screen.*
 
 
 class DashboardActivity : AppCompatActivity()  {
@@ -33,10 +36,7 @@ class DashboardActivity : AppCompatActivity()  {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
         binding.includeNavigation.navigationView.bringToFront()
 
-        binding.imgMenu.setOnClickListener {
-            if(!drawer_layout.isDrawerOpen(Gravity.START)) drawer_layout.openDrawer(Gravity.START)
-            else drawer_layout.closeDrawer(Gravity.END)
-        }
+
 
 
 
@@ -98,12 +98,20 @@ class DashboardActivity : AppCompatActivity()  {
     @SuppressLint("WrongConstant")
     fun set_ClickListener() {
 
+        binding.imgMenu.setOnClickListener {
+            if(!drawer_layout.isDrawerOpen(Gravity.START)) drawer_layout.openDrawer(Gravity.START)
+            else drawer_layout.closeDrawer(Gravity.END)
+        }
 
-        binding.includeNavigation.navigationView.setOnClickListener {
+        binding.includeNavigation.layoutLogout.setOnClickListener {
             if(binding.includeNavigation.navigationView.isShown) {
                 drawer_layout.closeDrawer(Gravity.END)
             }
             exitDialod()
+        }
+        binding.imgMenu.setOnClickListener {
+            if(!drawer_layout.isDrawerOpen(Gravity.START)) drawer_layout.openDrawer(Gravity.START)
+            else drawer_layout.closeDrawer(Gravity.END)
         }
     }
 
@@ -114,18 +122,27 @@ class DashboardActivity : AppCompatActivity()  {
         fragmentTransaction.replace(R.id.frame, fram)
         fragmentTransaction.commit()
 
-        binding.itemHome.setColorFilter(R.color.item_color)
-        binding.itemWishList.setColorFilter(R.color.item_color)
-        binding.itemCart.setColorFilter(R.color.item_color)
-        binding.itemAccount.setColorFilter(R.color.item_color)
+        binding.itemHome.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
+        binding.itemWishList.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
+        binding.itemCart.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
+        binding.itemAccount.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
 
         when(bottom_nev_positiom) {
-            0 -> { binding.itemHome.setColorFilter(Color.GREEN) }
-            1 -> { binding.itemWishList.setColorFilter(Color.GREEN)}
-            2 -> { binding.itemCart.setColorFilter(Color.GREEN) }
-            3 -> { binding.itemAccount.setColorFilter(Color.GREEN) }
+            0 -> { binding.itemHome.setColorFilter(R.color.color_green) }
+            1 -> { binding.itemWishList.setColorFilter(R.color.color_green)}
+            2 -> { binding.itemCart.setColorFilter(R.color.color_green) }
+            3 -> { binding.itemAccount.setColorFilter(R.color.color_green) }
         }
     }
+
     fun exitDialod() {
         AlertDialog.Builder(this)
             .setMessage("Are you sure you want to exit?")

@@ -71,6 +71,17 @@
                     black:layout_constraintStart_toEndOf="@+id/img_menu"
                     black:layout_constraintTop_toTopOf="parent" />
 
+                <ImageView
+                    android:id="@+id/img_cart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    black:layout_constraintBottom_toBottomOf="parent"
+                    black:layout_constraintEnd_toEndOf="parent"
+                    black:layout_constraintTop_toTopOf="parent"
+                    black:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+                    black:tint="@color/white_color" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!--

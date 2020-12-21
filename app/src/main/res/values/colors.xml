@@ -4,7 +4,7 @@
     <color name="grey_300">#E0E0E0</color>
     <color name="background">#ff00b0b0</color>
     <color name="blue_btn_bg_color">#D6EAF8</color>
-    <color name="item_color">#414141</color>
+    <color name="item_color">#cc000000</color>
     <color name="blue_btn_bg_pressed_color">#ff96bfd2</color>
     <color name="buttonColor">#ff0e5a75</color>
     <color name="button_material_dark">#ff5a595b</color>
