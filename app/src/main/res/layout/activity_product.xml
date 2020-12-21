@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Activitys.ProductActivity"
+        tools:context=".Activitys.ProductListActivity"
         android:background="@color/white_color">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:background="#ffffff"
+            android:elevation="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

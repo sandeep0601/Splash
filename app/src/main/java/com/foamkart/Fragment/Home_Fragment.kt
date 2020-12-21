@@ -1,23 +1,24 @@
 package com.foamkart.Fragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
-import com.foamkart.Activitys.ProductActivity
+import com.foamkart.Activitys.ProductListActivity
 import com.foamkart.Adapter.HomePageProductAdapter
 import com.foamkart.Adapter.ViewPagerAdapter
 import com.foamkart.R
 import com.foamkart.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.activity_dashboard.*
 
 
 class Home_Fragment: Fragment() {
@@ -54,10 +55,8 @@ class Home_Fragment: Fragment() {
         list.add("AA")
         list.add("AA")
 
-
-
         binding.txtMore.setOnClickListener {
-            startActivity(Intent(context,ProductActivity::class.java))
+            startActivity(Intent(context,ProductListActivity::class.java))
         }
         binding.viewpagerSlider.adapter = ViewPagerAdapter(context, images)
 
@@ -76,11 +75,16 @@ class Home_Fragment: Fragment() {
         binding.mainRecycler2.adapter=adapter
 
 
-
-
-
-
-        // Inflate the layout for this fragment
+        set_ClickListener()
         return binding.root
+    }
+    @SuppressLint("WrongConstant")
+    fun set_ClickListener() {
+        var drawer_layout: DrawerLayout=activity!!.findViewById(R.id.drawer_layout)
+        binding.imgMenu.setOnClickListener {
+            if(!drawer_layout.isDrawerOpen(Gravity.START)) drawer_layout.openDrawer(Gravity.START)
+            else drawer_layout.closeDrawer(Gravity.END)
+        }
+
     }
 }

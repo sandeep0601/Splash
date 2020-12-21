@@ -37,52 +37,8 @@
                 android:layout_height="fill_parent"
                 android:layout_above="@+id/tvvNews"
                 android:layout_marginBottom="?attr/actionBarSize"
-                android:elevation="1dp"
-                android:layout_marginTop="?attr/actionBarSize" />
+                android:elevation="1dp"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/color_green">
-
-                <ImageView
-                    android:id="@+id/img_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:src="@drawable/ic_baseline_menu_24"
-                    black:layout_constraintBottom_toBottomOf="parent"
-                    black:layout_constraintStart_toStartOf="parent"
-                    black:layout_constraintTop_toTopOf="parent"
-                    black:tint="@color/white_color" />
-
-                <TextView
-                    android:id="@+id/txtdemo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
-                    android:fontFamily="@font/baloo"
-                    android:text="FoamKart"
-                    android:textColor="@color/white_color"
-                    android:textSize="@dimen/text_title_large"
-                    black:layout_constraintBottom_toBottomOf="parent"
-                    black:layout_constraintEnd_toEndOf="parent"
-                    black:layout_constraintHorizontal_bias="0.0"
-                    black:layout_constraintStart_toEndOf="@+id/img_menu"
-                    black:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/img_cart"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="16dp"
-                    black:layout_constraintBottom_toBottomOf="parent"
-                    black:layout_constraintEnd_toEndOf="parent"
-                    black:layout_constraintTop_toTopOf="parent"
-                    black:srcCompat="@drawable/ic_baseline_shopping_cart_24"
-                    black:tint="@color/white_color" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!--
                         <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -6,14 +6,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.R
-import com.foamkart.databinding.ActivityDashboardBinding
 import com.foamkart.databinding.ActivityProductBinding
 
 
-class ProductActivity : AppCompatActivity() {
+class ProductListActivity : AppCompatActivity() {
     lateinit var list:ArrayList<String>
     var linearLayoutManager: LinearLayoutManager? = null
     var adapter: ProductListAdapter? = null
@@ -37,12 +35,10 @@ class ProductActivity : AppCompatActivity() {
         list.add("AA")
         list.add("AA")
 
-
-
         linearLayoutManager = GridLayoutManager(this, 2)
         binding.mainRecycler!!.layoutManager = linearLayoutManager
         binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
-        adapter = ProductListAdapter(list, this@ProductActivity)
+        adapter = ProductListAdapter(list, this@ProductListActivity)
         binding.mainRecycler.adapter=adapter
 
     }

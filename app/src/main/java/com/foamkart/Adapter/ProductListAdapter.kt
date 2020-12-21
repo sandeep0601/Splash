@@ -43,9 +43,6 @@ class ProductListAdapter(private var mOptionList: List<String>, var context: Con
         init {
             product_name = itemView.findViewById<TextView>(R.id.product_name)
             itemView.setOnClickListener {
-               /* if (mOnItemClickListener != null) {
-                    mOnItemClickListener!!.onItemClick(getItem(adapterPosition))
-                }*/
             }
         }
     }

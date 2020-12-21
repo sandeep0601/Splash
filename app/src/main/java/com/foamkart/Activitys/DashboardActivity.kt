@@ -11,7 +11,9 @@ import android.util.Log
 import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.foamkart.FoamkartApp
@@ -59,59 +61,17 @@ class DashboardActivity : AppCompatActivity()  {
         binding.layoutAccount.setOnClickListener { setFram(Home_Fragment(),3) }
     }
 
-    private fun viewFragment(
-            fragment: Fragment,
-            name: String
-    ) {
-        var fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction =
-                fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame, fragment)
-        // 1. Know how many fragments there are in the stack
-        val count = fragmentManager.backStackEntryCount
-        // 2. If the fragment is **not** "home type", save it to the stack
-        if (name == FRAGMENT_OTHER) {
-            fragmentTransaction.addToBackStack(name)
-        }
-        // Commit !
-        fragmentTransaction.commit()
-        // 3. After the commit, if the fragment is not an "home type" the back stack is changed, triggering the
-        // OnBackStackChanged callback
-        fragmentManager.addOnBackStackChangedListener(object :
-                FragmentManager.OnBackStackChangedListener {
-            override fun onBackStackChanged() {
-                // If the stack decreases it means I clicked the back button
-                if (fragmentManager.backStackEntryCount <= count) {
-                    // pop all the fragment and remove the listener
-                    fragmentManager.popBackStack(FRAGMENT_OTHER, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    fragmentManager.removeOnBackStackChangedListener(this)
-                    // set the home button selected
-//                    mainBinding.navigation.getMenu().getItem(0).setChecked(true)
-
-                }
-            }
-        })
-    }
 
 
 
     @SuppressLint("WrongConstant")
     fun set_ClickListener() {
 
-        binding.imgMenu.setOnClickListener {
-            if(!drawer_layout.isDrawerOpen(Gravity.START)) drawer_layout.openDrawer(Gravity.START)
-            else drawer_layout.closeDrawer(Gravity.END)
-        }
-
         binding.includeNavigation.layoutLogout.setOnClickListener {
-            if(binding.includeNavigation.navigationView.isShown) {
-                drawer_layout.closeDrawer(Gravity.END)
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
             }
             exitDialod()
-        }
-        binding.imgMenu.setOnClickListener {
-            if(!drawer_layout.isDrawerOpen(Gravity.START)) drawer_layout.openDrawer(Gravity.START)
-            else drawer_layout.closeDrawer(Gravity.END)
         }
     }
 
