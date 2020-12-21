@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:background="@color/white_color">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:src="@drawable/banner1"/>
+
+            <TextView
+                android:layout_marginStart="8dp"
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:text="iPhone 10x"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginStart="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:layout_marginTop="4dp"
+                android:text="Apple IPhone 12 pro"
+                android:textColor="@color/c_gray1"
+                android:textSize="@dimen/text_small"/>
+
+            <TextView
+                android:layout_marginStart="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:text="$ 9999"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

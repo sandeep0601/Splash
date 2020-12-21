@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@id/home"
+            android:checked="false"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="Home" />
+        <item
+            android:id="@+id/fund_received"
+            android:checked="false"
+            android:icon="@drawable/ic_baseline_favorite_border_24"
+            android:title="Wishlist"/>
+        <item
+            android:id="@+id/remain_amout"
+            android:checked="false"
+            android:icon="@drawable/ic_baseline_shopping_cart_24"
+            android:title="Cart" />
+        <item
+            android:id="@+id/change_pass"
+            android:checked="false"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="Account"/>
+    </group>
+</menu>

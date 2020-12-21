@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "876116753068",
+    "project_id": "foamkart-d548a",
+    "storage_bucket": "foamkart-d548a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876116753068:android:a99f8e3a5b23ef09ad3d09",
+        "android_client_info": {
+          "package_name": "com.foamkart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876116753068-lhfh0f55kbhloivt71ulu8gc1ceemtr0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foamkart",
+            "certificate_hash": "c45a6d8b3732ebe37cb8ef7cbaf48236f1378d46"
+          }
+        },
+        {
+          "client_id": "876116753068-ucch3a0oto36dlgb5aseco2pecnkl3ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkuB88EgYmxbJvl1Zwp1mveYR_n4QTNOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876116753068-ucch3a0oto36dlgb5aseco2pecnkl3ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
