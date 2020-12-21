@@ -7,7 +7,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.util.Base64
 import android.util.Log
-import com.foamkart.Activitys.SplachScreen
+import com.foamkart.Activitys.SplashScreen
 import com.foamkart.Helper.SharedPrefData
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -92,7 +92,7 @@ class FoamkartApp : Application() {
             val mEditor = mPreferences!!.edit()
             mEditor.clear()
             mEditor.commit()
-            val intent = Intent(myappContext, SplachScreen::class.java)
+            val intent = Intent(myappContext, SplashScreen::class.java)
             intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK
                     or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             myappContext!!.startActivity(intent)

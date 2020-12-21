@@ -14,7 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.foamkart.R
 
-class SplachScreen : AppCompatActivity() {
+class SplashScreen : AppCompatActivity() {
     var CAMERA_PERMISSION_CODE = 100
     var STORAGE_PERMISSION_CODE = 101
 
@@ -35,9 +35,9 @@ class SplachScreen : AppCompatActivity() {
 
         Handler().postDelayed(Runnable {
 //            val mainIntent = Intent(this@SplachScreen,MainActivity::class.java)
-            val mainIntent = Intent(this@SplachScreen,LoginActivity::class.java)
-            this@SplachScreen.startActivity(mainIntent)
-            this@SplachScreen.finish()
+            val mainIntent = Intent(this@SplashScreen,LoginActivity::class.java)
+            this@SplashScreen.startActivity(mainIntent)
+            this@SplashScreen.finish()
         },3000)
 
 
@@ -47,13 +47,13 @@ class SplachScreen : AppCompatActivity() {
 
     fun checkPermission(permission: Array<out String>, requestCode: Int) {
         if (ContextCompat.checkSelfPermission(
-                this@SplachScreen,
+                this@SplashScreen,
                 permission[0]
             ) === PackageManager.PERMISSION_DENIED
         ) {
 
             ActivityCompat.requestPermissions(
-                this@SplachScreen, permission,
+                this@SplashScreen, permission,
                 requestCode
             )
         } else {
