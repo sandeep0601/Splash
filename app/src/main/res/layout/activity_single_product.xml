@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#ffffff"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager_slider"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_margin="2dp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/txt_15sp">
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:text="iPhone 10x pro."
+                android:textColor="@color/black"
+                android:textSize="@dimen/text" />
+
+            <TextView
+                android:id="@+id/txt_date_and_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:lines="1"
+                android:paddingEnd="4dp"
+                android:text="Ordered on 22/10/2020 12:50 PM"
+                android:textColor="@color/c_gray1"
+                android:textSize="@dimen/text_small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="35dp"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:text="Extra ₹5000 off"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small_extra"
+                android:background="@drawable/shape_round"
+                android:backgroundTint="#E9F7EF"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/txt_emi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:lines="1"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginStart="8dp"
+                android:text="EMI Start from ₹451"
+                android:textColor="@color/c_red"
+                android:textSize="@dimen/text_small_extra"
+                android:background="@drawable/shape_round"
+                android:backgroundTint="#F2D7D5"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_delet"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="right"
+                    android:gravity="right"
+                    android:src="@drawable/ic_baseline_favorite_border_redcolor"
+                    android:layout_marginEnd="16dp"
+                    android:padding="2dp"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/txt_15sp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="center|left"
+                    android:gravity="center|left"
+                    android:text="₹ 9999"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="center|left"
+                    android:gravity="center|left"
+                    android:text="@string/crossed_price"
+                    android:textColor="@color/c_gray1"
+                    android:textSize="@dimen/text_small"
+                    android:textStyle="bold"
+                    android:layout_marginStart="8dp"/>
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_price_off"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|right"
+                android:lines="1"
+                android:paddingEnd="16dp"
+                android:paddingStart="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="4dp"
+                android:text="53% off"
+                android:textColor="@color/c_red"
+                android:textSize="@dimen/text_small"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/txt_15sp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:text="PRODUCT DESCRIPTION"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:paddingEnd="4dp"
+                android:text="I tried to few fixes from other SOF answers but couldn't understand what went wrong with my code considering it was running fine and it suddenly seems to have started crashing. I removed a header in the adapter if that matters."
+                android:textColor="@color/c_gray1"
+                android:textSize="@dimen/text_small" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/txt_15sp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:text="RELATED PRODUCT"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/worksans_medium"
+                android:foregroundGravity="center|left"
+                android:gravity="center|left"
+                android:paddingEnd="4dp"
+                android:text="I tried to few fixes from other SOF answers but couldn't understand what went wrong with my code considering it was running fine and it suddenly seems to have started crashing. I removed a header in the adapter if that matters."
+                android:textColor="@color/c_gray1"
+                android:textSize="@dimen/text_small" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</layout>

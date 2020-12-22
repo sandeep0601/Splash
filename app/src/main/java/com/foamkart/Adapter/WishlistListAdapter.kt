@@ -3,6 +3,7 @@ package com.foamkart.Adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +53,8 @@ class WishlistListAdapter(public var product_list: ArrayList<String>, var contex
                 DialogInterface.OnClickListener { dialog, id ->
                     product_list!!.removeAt(position)
                     notifyItemRemoved(position)
+                    Log.e("@@", "removeDialog: "+position)
+                    product_list.clear()
                 })
             .setNegativeButton("No", null)
             .show()

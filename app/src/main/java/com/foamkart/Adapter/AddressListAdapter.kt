@@ -1,18 +1,17 @@
 package com.foamkart.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.foamkart.Activitys.ProductActivity
-import com.foamkart.Activitys.ProductListActivity
 import com.foamkart.R
 
-class ProductListAdapter(private var mOptionList: List<String>, var context: Context) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+class AddressListAdapter(private var mOptionList: List<String>, var context: Context) : RecyclerView.Adapter<AddressListAdapter.ViewHolder>() {
 
 
 
@@ -20,17 +19,25 @@ class ProductListAdapter(private var mOptionList: List<String>, var context: Con
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_product_list_adapter, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_address_list_adapter, parent, false))
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val option = getItem(position)
         holder.product_name.setText(option.toString())
 
+
         holder.item.setOnClickListener {
-            context.startActivity(Intent(context, ProductActivity::class.java))
+
+            notifyDataSetChanged()
+            holder.txt_primary.visibility=View.VISIBLE
         }
+
+
+
     }
+
 
 
     private fun getItem(index: Int): String {
@@ -44,14 +51,19 @@ class ProductListAdapter(private var mOptionList: List<String>, var context: Con
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var product_name: TextView
+        var txt_address1: TextView
+        var txt_status: TextView
+        var txt_primary: TextView
         var item: CardView
 
 
         init {
             product_name = itemView.findViewById<TextView>(R.id.product_name)
+            txt_address1 = itemView.findViewById<TextView>(R.id.txt_address1)
+            txt_status = itemView.findViewById<TextView>(R.id.txt_status)
+            txt_primary = itemView.findViewById<TextView>(R.id.txt_primary)
             item = itemView.findViewById(R.id.item)
-            itemView.setOnClickListener {
-            }
+
         }
     }
 }

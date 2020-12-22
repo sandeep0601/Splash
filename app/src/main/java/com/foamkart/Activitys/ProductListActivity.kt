@@ -8,22 +8,27 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.R
-import com.foamkart.databinding.ActivityProductBinding
+import com.foamkart.databinding.ActivityProductlistBinding
 
 
 class ProductListActivity : AppCompatActivity() {
-    lateinit var list:ArrayList<String>
+    var list:ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null
     var adapter: ProductListAdapter? = null
-    lateinit var binding: ActivityProductBinding
+    lateinit var binding: ActivityProductlistBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_product)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_productlist)
 
-        list= ArrayList()
+        binding.imgBack.setOnClickListener { finish() }
 
+        setList()
+
+
+    }
+    fun setList() {
         list.add("Product")
         list.add("Product")
         list.add("Product")
@@ -40,6 +45,5 @@ class ProductListActivity : AppCompatActivity() {
         binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
         adapter = ProductListAdapter(list, this@ProductListActivity)
         binding.mainRecycler.adapter=adapter
-
     }
 }

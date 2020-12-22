@@ -17,6 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.foamkart.FoamkartApp
+import com.foamkart.Fragment.AccountFragment
+import com.foamkart.Fragment.CartFragment
 import com.foamkart.Fragment.Home_Fragment
 import com.foamkart.Fragment.WishListFragment
 import com.foamkart.R
@@ -45,10 +47,7 @@ class DashboardActivity : AppCompatActivity()  {
 
 
 
-
-
-
-//        setFram(Home_Fragment())
+        setFram(Home_Fragment(),0)
         set_ClickListener()
         bottomNavigation()
 
@@ -57,8 +56,8 @@ class DashboardActivity : AppCompatActivity()  {
     fun bottomNavigation() {
         binding.layoutHome.setOnClickListener { setFram(Home_Fragment(),0) }
         binding.layoutWishlist.setOnClickListener { setFram(WishListFragment(),1) }
-        binding.layoutCart.setOnClickListener { setFram(Home_Fragment(),2) }
-        binding.layoutAccount.setOnClickListener { setFram(Home_Fragment(),3) }
+        binding.layoutCart.setOnClickListener { setFram(CartFragment(),2) }
+        binding.layoutAccount.setOnClickListener { setFram(AccountFragment(),3) }
     }
 
 

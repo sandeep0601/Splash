@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="1dp"
-    android:layout_marginEnd="1dp"
-    android:layout_marginTop="1dp"
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginTop="2dp"
     android:elevation="1dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="4dp"
@@ -26,26 +26,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#ffffff">
+            android:background="#ffffff"
+            android:minHeight="70dp">
+
+            <TextView
+                android:id="@+id/txt_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/shape_round1"
+                android:gravity="center"
+                android:paddingStart="@dimen/txt_15sp"
+                android:paddingTop="8dp"
+                android:paddingEnd="@dimen/txt_15sp"
+                android:paddingBottom="8dp"
+                android:text="PRIMARY"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/text_small_extra"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_margin="1dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/mobile_image"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_baseline_home_24"
+                android:padding="@dimen/txt_10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="92dp"
-                android:layout_marginEnd="90dp"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="61dp"
+                android:layout_marginBottom="12dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -62,11 +91,12 @@
                     android:fontFamily="@font/worksans_medium"
                     android:foregroundGravity="center|left"
                     android:gravity="center|left"
-                    android:text="iPhone 10x pro."
+                    android:text="Mr. Username"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text" />
 
                 <TextView
+                    android:id="@+id/txt_address1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -74,67 +104,43 @@
                     android:fontFamily="@font/worksans_medium"
                     android:foregroundGravity="center|left"
                     android:gravity="center|left"
-                    android:lines="3"
+                    android:lines="1"
                     android:paddingEnd="4dp"
-                    android:text="This is the simplest method you just have to set strikethrough flag on your TextView as,"
+                    android:text="3423 jaipur road"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="center|left"
+                    android:gravity="center|left"
+                    android:lines="1"
+                    android:paddingEnd="4dp"
+                    android:text="jaipur rajasthan india jaipur rajasthan india"
+                    android:textColor="@color/c_gray1"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/txt_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="center|left"
+                    android:gravity="center|left"
+                    android:lines="1"
+                    android:paddingEnd="4dp"
+                    android:text="+1540-529-3606"
                     android:textColor="@color/c_gray1"
                     android:textSize="@dimen/text_small" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="85dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="5dp"
-                android:foregroundGravity="center|right"
-                android:gravity="center|right"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/img_favret"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center|right"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/worksans_medium"
-                    android:foregroundGravity="center|right"
-                    android:gravity="center|right"
-                    android:padding="4dp"
-                    android:src="@drawable/ic_baseline_favorite_border_redcolor" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/worksans_medium"
-                    android:foregroundGravity="center|right"
-                    android:gravity="center|right"
-                    android:text="@string/crossed_price"
-                    android:textColor="@color/c_gray1"
-                    android:textSize="@dimen/text_small"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/worksans_medium"
-                    android:foregroundGravity="center|right"
-                    android:gravity="center|right"
-                    android:text="$ 9999"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text"
-                    android:textStyle="bold" />
-
-
-            </LinearLayout>
 
 
 

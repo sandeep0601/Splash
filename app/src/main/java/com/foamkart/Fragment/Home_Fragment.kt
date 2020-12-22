@@ -44,12 +44,12 @@ class Home_Fragment: Fragment() {
         thiscontext=container!!.context
         list= ArrayList()
 
-        list.add("Product")
-        list.add("Product")
-        list.add("Product")
-        list.add("Product")
-        list.add("Product")
-        list.add("Product")
+        list.add("Samsung Galaxy j7")
+        list.add("iPhone Pro")
+        list.add("Samsung Galaxy j7")
+        list.add("iPhone Pro")
+        list.add("Product 1")
+        list.add("Product 2")
         list.add("AA")
         list.add("AA")
         list.add("AA")
@@ -85,6 +85,5 @@ class Home_Fragment: Fragment() {
             if(!drawer_layout.isDrawerOpen(Gravity.START)) drawer_layout.openDrawer(Gravity.START)
             else drawer_layout.closeDrawer(Gravity.END)
         }
-
     }
 }

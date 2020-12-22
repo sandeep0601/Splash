@@ -14,8 +14,8 @@
         android:background="@color/white_color">
 
         <include
-            layout="@layout/layout_toolbar"
-            android:id="@+id/constraintLayout"
+            layout="@layout/layout_toolbar2"
+            android:id="@+id/toolbar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
