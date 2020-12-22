@@ -7,6 +7,10 @@
 
     </data>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -146,14 +150,14 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/img_delet"
+                    android:id="@+id/img_favorite"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="right"
                     android:fontFamily="@font/worksans_medium"
                     android:foregroundGravity="right"
                     android:gravity="right"
-                    android:src="@drawable/ic_baseline_favorite_border_redcolor"
+                    android:src="@drawable/ic_baseline_favorite_border_24"
                     android:layout_marginEnd="16dp"
                     android:padding="2dp"/>
 
@@ -275,6 +279,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text"/>
 
+<!--
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -287,6 +292,7 @@
                 android:text="I tried to few fixes from other SOF answers but couldn't understand what went wrong with my code considering it was running fine and it suddenly seems to have started crashing. I removed a header in the adapter if that matters."
                 android:textColor="@color/c_gray1"
                 android:textSize="@dimen/text_small" />
+-->
 
 
         </LinearLayout>
@@ -294,4 +300,5 @@
 
 
     </LinearLayout>
+    </ScrollView>
 </layout>
