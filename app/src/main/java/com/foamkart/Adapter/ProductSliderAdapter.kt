@@ -7,22 +7,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.foamkart.R
 import java.util.*
 
-class ProductSliderAdapter  : PagerAdapter {
+class ProductSliderAdapter : PagerAdapter {
 
-    // Context object
     var context: Context? = null
-
-    // Array of images
     lateinit var images: IntArray
-
-    // Layout Inflater
     var mLayoutInflater: LayoutInflater? = null
 
-
-    // Viewpager Constructor
     constructor(context: Context, images: IntArray?) {
         this.context = context
         this.images = images!!
@@ -39,10 +33,14 @@ class ProductSliderAdapter  : PagerAdapter {
         return view === `object` as LinearLayout
     }
 
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+//        super.destroyItem(container, position, `object`)
+        (container as ViewPager).removeView(`object` as View?)
+    }
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         // inflating the item.xml
         val itemView: View =
-            mLayoutInflater!!.inflate(R.layout.layout_viewpager_adapter, container, false)
+            mLayoutInflater!!.inflate(R.layout.layout_product_slider_adapter, container, false)
 
         // referencing the image view from the item.xml file
         val imageView = itemView.findViewById<View>(R.id.imageViewMain) as ImageView
@@ -54,9 +52,5 @@ class ProductSliderAdapter  : PagerAdapter {
         Objects.requireNonNull(container).addView(itemView)
         return itemView
     }
-   /* override fun destroyItem(container: ViewGroup, position: Int, `object`: Any?) {
-        container.removeView(`object` as LinearLayout?)
-    }*/
 
 }
-

@@ -25,7 +25,8 @@ class ProductListActivity : AppCompatActivity() {
         binding.imgBack.setOnClickListener { finish() }
 
         setList()
-
+/*  app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="15dp"*/
 
     }
     fun setList() {

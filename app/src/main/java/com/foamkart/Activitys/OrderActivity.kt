@@ -10,6 +10,7 @@ import com.foamkart.R
 import com.foamkart.databinding.ActivityOrderBinding
 
 class OrderActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityOrderBinding
     var list:ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null

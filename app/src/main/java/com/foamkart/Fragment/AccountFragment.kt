@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.foamkart.Activitys.AccountSettingActivity
 import com.foamkart.Activitys.AddressListActivity
 import com.foamkart.Activitys.OrderActivity
 import com.foamkart.Activitys.SplashScreen
@@ -42,6 +43,9 @@ class AccountFragment: Fragment() {
         thiscontext=container!!.context
 
 
+        binding.layoutAccountSetting.setOnClickListener {
+            context?.startActivity(Intent(context, AccountSettingActivity::class.java))
+        }
         binding.layoutLogout.setOnClickListener {
             exitDialod()
         }

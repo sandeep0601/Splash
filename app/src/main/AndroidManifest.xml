@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoamKart">
-        <activity android:name=".Activitys.ProductActivity"></activity>
+        <activity android:name=".Activitys.AccountSettingActivity"></activity>
+        <activity android:name=".Activitys.ProductActivity" />
         <activity android:name=".Activitys.OrderActivity" />
         <activity android:name=".Activitys.ProductListActivity" />
         <activity android:name=".Activitys.DashboardActivity" />
