@@ -7,6 +7,11 @@
 
     </data>
 
+    <FrameLayout
+        android:id="@+id/frame_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
@@ -276,4 +281,5 @@
 
 
     </androidx.drawerlayout.widget.DrawerLayout>
+    </FrameLayout>
 </layout>

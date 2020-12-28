@@ -17,6 +17,7 @@ class SingUp : AppCompatActivity() {
 
         btn_login.setOnClickListener {
             startActivity(Intent(this@SingUp,DashboardActivity::class.java))
+            finish()
         }
         btn_sinin.setOnClickListener {
             startActivity(Intent(this@SingUp,LoginActivity::class.java))

@@ -66,19 +66,22 @@ class CartListAdapter(public var product_list: ArrayList<String>, var context: C
                 DialogInterface.OnClickListener { dialog, id ->
 
                     try {
-                        if(product_list.size>1) {
-                            product_list!!.removeAt(position)
-                            notifyItemRemoved(position)
-                        } else {
-                        }
-
-
+                        remove(position)
                     } catch (e: Exception) {
                         Log.e("@@cart", "removeDialog: "+e.message.toString())
                     }
                 })
             .setNegativeButton("No", null)
             .show()
+    }
+    fun remove(position: Int) {
+        if (product_list.size < 0) {
+            product_list.clear()
+        } else {
+            product_list.remove(product_list.get(position))
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, itemCount)
+        }
     }
 
 

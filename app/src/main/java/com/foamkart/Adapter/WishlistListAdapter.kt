@@ -3,7 +3,6 @@ package com.foamkart.Adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.foamkart.R
 
-
 class WishlistListAdapter(public var product_list: ArrayList<String>, var context: Context) : RecyclerView.Adapter<WishlistListAdapter.ViewHolder>() {
     lateinit var holder: ViewHolder
-
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_wishlist_adapter, parent, false))
@@ -38,12 +33,7 @@ class WishlistListAdapter(public var product_list: ArrayList<String>, var contex
                 removeDialog(position)
             }
         }
-
-
-
     }
-
-
 
     fun removeDialog(position: Int) {
         AlertDialog.Builder(context)
@@ -51,26 +41,26 @@ class WishlistListAdapter(public var product_list: ArrayList<String>, var contex
             .setCancelable(false)
             .setPositiveButton("Yes",
                 DialogInterface.OnClickListener { dialog, id ->
-                    product_list!!.removeAt(position)
-                    notifyItemRemoved(position)
-                    Log.e("@@", "removeDialog: "+position)
-                    product_list.clear()
+//                    product_list.remove(position)
+//                    notifyItemRemoved(position)
+                    remove(position)
+
                 })
             .setNegativeButton("No", null)
             .show()
 
     }
 
-    fun remove(position:Int) {
 
-        if (position > -1) {
-            product_list!!.removeAt(position)
-            notifyItemRemoved(position)
+    fun remove(position: Int) {
+        if (product_list.size < 0) {
+            product_list.clear()
+        } else {
+            product_list.remove(product_list.get(position))
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, itemCount)
         }
     }
-
-
-
 
     private fun getItem(index: Int): String {
         return product_list[index]

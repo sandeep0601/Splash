@@ -1,7 +1,10 @@
 package com.foamkart.Activitys
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
@@ -18,6 +21,7 @@ class ProductActivity : AppCompatActivity() {
     var list:ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null
     var adapter: ProductListAdapter? = null
+    var TAG="@@ProductActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,20 +33,17 @@ class ProductActivity : AppCompatActivity() {
         binding.title.setText("iPhone 10x pro.")
         binding.imgBack.setOnClickListener { finish() }
 
-
         binding.imgFavorite.setOnClickListener {
             var snackbar = Snackbar
                 .make(it, "Selected", Snackbar.LENGTH_LONG)
             snackbar.show()
-            binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_redcolor)
 
-  /*          snackBar.setActionTextColor(Color.BLUE)
-            val snackBarView: View = snackBar.getView()
-            val textView: TextView =
-                snackBarView.findViewById(android.support.design.R.id.snackbar_text)
-            textView.setTextColor(Color.RED)
-            snackBar.show()*/
+        }
 
+        binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_redcolor)
+
+        binding.txtBayNow.setOnClickListener {
+            startActivity(Intent(this@ProductActivity,PaymentActivity::class.java))
         }
 
     }
@@ -55,6 +56,7 @@ class ProductActivity : AppCompatActivity() {
         )
         binding.viewpagerSlider.adapter = ProductSliderAdapter(this, images)
     }
+
     fun setRelatedProductList() {
 
         list.add("Samsung Galaxy j7")

@@ -16,7 +16,7 @@
         android:gravity="center"
         android:textColor="@color/color_green"
         android:textSize="35dp"
-        android:fontFamily="@font/worksans_medium"
+        android:fontFamily="@font/baloo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -26,17 +26,19 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginTop="173dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:progressTint="@color/white_color"
-        android:progressBackgroundTint="@color/white_color"
-        android:padding="4dp"/>
-
+        android:progressTint="@color/color_green"
+        android:progressBackgroundTint="@color/color_green"
+        android:padding="4dp"
+        android:indeterminate="true"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/custom_progress_background"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

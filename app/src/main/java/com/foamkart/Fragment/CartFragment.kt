@@ -1,6 +1,7 @@
 package com.foamkart.Fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.foamkart.Activitys.OrderCheckoutActivity
 import com.foamkart.Adapter.CartListAdapter
 import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.Adapter.WishlistListAdapter
@@ -36,7 +38,9 @@ class CartFragment: Fragment() {
         thiscontext=container!!.context
 
         binding.toolbar.txtTitle.setText("My Cart")
-
+        binding.txtCheckOut.setOnClickListener {
+            startActivity(Intent(thiscontext, OrderCheckoutActivity::class.java))
+        }
         setList()
 
         return binding.root
@@ -50,7 +54,7 @@ class CartFragment: Fragment() {
 
         linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.mainRecycler!!.layoutManager = linearLayoutManager
-        binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
+        binding.mainRecycler!!.itemAnimator = null
         adapter = CartListAdapter(list, thiscontext)
         binding.mainRecycler.adapter=adapter
     }

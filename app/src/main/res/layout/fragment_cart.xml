@@ -86,6 +86,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txt_check_out"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

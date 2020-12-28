@@ -25,19 +25,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-
-        val lLayout = findViewById<View>(R.id.l1) as LinearLayout
-
-        for (i in 0..4) {
-            val tv = TextView(this)
-            tv.text = "TextView $i"
-            tv.id = i + 5
-            lLayout.addView(tv)
-        }
-
-
         binding.btnLogin.setOnClickListener {
             startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
+            finish()
         }
         binding.layoutSingup.setOnClickListener {
             startActivity(Intent(this@LoginActivity,SingUp::class.java))

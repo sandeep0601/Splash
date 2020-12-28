@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.Adapter.WishlistListAdapter
 import com.foamkart.R
 import com.foamkart.databinding.FragmentWishlistBinding
@@ -37,20 +35,23 @@ class WishListFragment: Fragment() {
 
         setList()
 
-
-
         // Inflate the layout for this fragment
         return binding.root
     }
+
     fun setList() {
         list= ArrayList()
 
-        list.add("Product")
-        list.add("Product")
+        list.add("Product1")
+        list.add("Product2")
+        list.add("Product3")
+        list.add("Product4")
 
         linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.mainRecycler!!.layoutManager = linearLayoutManager
-        binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
+//        binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
+
+        binding.mainRecycler.itemAnimator = null
         adapter = WishlistListAdapter(list, thiscontext)
         binding.mainRecycler.adapter=adapter
     }

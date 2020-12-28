@@ -36,7 +36,7 @@ class DashboardActivity : AppCompatActivity()  {
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_dashboard)
+        setContentView(R.layout.activity_dashboard)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
         binding.includeNavigation.navigationView.bringToFront()
 
@@ -47,17 +47,18 @@ class DashboardActivity : AppCompatActivity()  {
 
 
 
-        setFram(Home_Fragment(),0)
+
+        setFram(Home_Fragment(),"FRAGMENT_HOME",0)
         set_ClickListener()
         bottomNavigation()
 
 
     }
     fun bottomNavigation() {
-        binding.layoutHome.setOnClickListener { setFram(Home_Fragment(),0) }
-        binding.layoutWishlist.setOnClickListener { setFram(WishListFragment(),1) }
-        binding.layoutCart.setOnClickListener { setFram(CartFragment(),2) }
-        binding.layoutAccount.setOnClickListener { setFram(AccountFragment(),3) }
+        binding.layoutHome.setOnClickListener { setFram(Home_Fragment(),"FRAGMENT_HOME",0) }
+        binding.layoutWishlist.setOnClickListener { setFram(WishListFragment(),FRAGMENT_OTHER,1) }
+        binding.layoutCart.setOnClickListener { setFram(CartFragment(),FRAGMENT_OTHER,2) }
+        binding.layoutAccount.setOnClickListener { setFram(AccountFragment(),FRAGMENT_OTHER,3) }
     }
 
 
@@ -74,7 +75,64 @@ class DashboardActivity : AppCompatActivity()  {
         }
     }
 
-    fun setFram(fram: Fragment,bottom_nev_positiom:Int) {
+    private fun setFram(fragment: Fragment, name: String,bottom_nev_positiom:Int) {
+        var fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction =
+            fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame, fragment)
+        // 1. Know how many fragments there are in the stack
+        val count = fragmentManager.backStackEntryCount
+        // 2. If the fragment is **not** "home type", save it to the stack
+        if (name == FRAGMENT_OTHER) {
+            fragmentTransaction.addToBackStack(name)
+        }
+        // Commit !
+        fragmentTransaction.commit()
+        // 3. After the commit, if the fragment is not an "home type" the back stack is changed, triggering the
+        // OnBackStackChanged callback
+        fragmentManager.addOnBackStackChangedListener(object :
+            FragmentManager.OnBackStackChangedListener {
+            override fun onBackStackChanged() {
+                // If the stack decreases it means I clicked the back button
+                if (fragmentManager.backStackEntryCount <= count) {
+                    // pop all the fragment and remove the listener
+                    fragmentManager.popBackStack(
+                        FRAGMENT_OTHER,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    )
+                    fragmentManager.removeOnBackStackChangedListener(this)
+                    // set the home button selected
+//                    mainBinding.navigation.getMenu().getItem(0).setChecked(true)
+                }
+                Log.d(TAG, "onBackStackChanged: $count")
+            }
+        })
+        Log.d(TAG, "onBackStackChanged:1 $count")
+
+        binding.itemHome.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
+        binding.itemWishList.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
+        binding.itemCart.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
+        binding.itemAccount.setColorFilter(
+            ContextCompat.getColor(this,R.color.item_color),
+            PorterDuff.Mode.MULTIPLY)
+
+        when(bottom_nev_positiom) {
+            0 -> { binding.itemHome.setColorFilter(R.color.color_green) }
+            1 -> { binding.itemWishList.setColorFilter(R.color.color_green)}
+            2 -> { binding.itemCart.setColorFilter(R.color.color_green) }
+            3 -> { binding.itemAccount.setColorFilter(R.color.color_green) }
+        }
+
+    }
+
+
+    fun setFram1(fram: Fragment,bottom_nev_positiom:Int) {
         val fragmentManager: FragmentManager = supportFragmentManager
         val fragmentTransaction =
             fragmentManager.beginTransaction()
@@ -113,5 +171,10 @@ class DashboardActivity : AppCompatActivity()  {
                         FoamkartApp.myappContext!!.startActivity(intent) })
             .setNegativeButton("No", null)
             .show()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Log.d(TAG, "onBackPressed: ")
     }
 }
