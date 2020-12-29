@@ -128,7 +128,7 @@
                     android:fontFamily="@font/worksans_medium"
                     android:foregroundGravity="center|right"
                     android:gravity="center|right"
-                    android:text="$ 9999"
+                    android:text="₹ 9999"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text"
                     android:textStyle="bold" />

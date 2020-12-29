@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="0.5dp"
+    android:layout_marginEnd="0.5dp"
+    android:layout_marginTop="1dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginStart="0.5dp"
+        android:layout_marginEnd="0.5dp"
+        android:layout_marginTop="0.5dp"
+        android:layout_marginBottom="0.5dp"
+        app:layout_goneMarginEnd="0.5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#ffffff">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:buttonTint="@color/color_green"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="@dimen/txt_50sp"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/txt_15sp"
+                android:layout_marginBottom="@dimen/txt_15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_place_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="center|left"
+                    android:gravity="center|left"
+                    android:text="Home"
+                    android:textColor="@color/c_gray2"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/txt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="center|left|top"
+                    android:gravity="center|left|top"
+                    android:layout_marginTop="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="Mr.Surender"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text"/>
+
+                <TextView
+                    android:id="@+id/txt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/worksans_medium"
+                    android:foregroundGravity="center|left|top"
+                    android:gravity="center|left|top"
+                    android:layout_marginTop="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="849 Koontz Lane jaipur 849 Koontz Lane jaipur 849 Koontz Lane jaipur \n+1 818-123-7745"
+                    android:textColor="@color/c_gray1"
+                    android:textSize="@dimen/text_small"/>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

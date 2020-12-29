@@ -7,8 +7,10 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Gravity
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -32,6 +34,7 @@ class DashboardActivity : AppCompatActivity()  {
     lateinit var binding:ActivityDashboardBinding
     var TAG="@@"
     var FRAGMENT_OTHER = "FRAGMENT_OTHER"
+    private var doubleBackToExitPressedOnce = false
 
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,6 +75,9 @@ class DashboardActivity : AppCompatActivity()  {
                 binding.drawerLayout.closeDrawer(GravityCompat.START)
             }
             exitDialod()
+        }
+        binding.includeNavigation.layoutAddress.setOnClickListener {
+            startActivity(Intent(this@DashboardActivity,AddressListActivity::class.java))
         }
     }
 
@@ -174,7 +180,27 @@ class DashboardActivity : AppCompatActivity()  {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        Log.d(TAG, "onBackPressed: ")
+
+        Log.d(TAG, "onBackPressed: "+supportFragmentManager.fragments.last().id)
+
+        if(supportFragmentManager.fragments.last().id==2131361997) {
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed()
+                return
+            }
+
+            this.doubleBackToExitPressedOnce = true
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+            Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+        } else {
+            super.onBackPressed()
+        }
+
+
     }
 }
+
+/*
+* 1 padding in login,SINGuP screen
+* 2 PADDING IN LISTING*/

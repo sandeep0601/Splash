@@ -112,6 +112,42 @@
                         android:layout_marginRight="25dp"
                         android:background="@color/c_gray1" />
 
+                    <LinearLayout
+                        android:id="@+id/layout_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="25dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_baseline_home_24"
+                            tools:ignore="VectorDrawableCompat"
+                            black:tint="#ff858585" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:text="My Address"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_nev"
+                            android:fontFamily="@font/worksans_medium"
+                            android:drawableTint="@color/black" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0.1dp"
+
+                        android:layout_marginStart="69dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginRight="25dp"
+                        android:background="@color/c_gray1" />
 
                     <LinearLayout
                         android:id="@+id/layout_Method"

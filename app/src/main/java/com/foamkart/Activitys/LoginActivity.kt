@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
             finish()
         }
-        binding.layoutSingup.setOnClickListener {
+        binding.btnSingUp.setOnClickListener {
             startActivity(Intent(this@LoginActivity,SingUp::class.java))
         }
     }

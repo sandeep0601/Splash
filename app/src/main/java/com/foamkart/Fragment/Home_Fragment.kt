@@ -31,7 +31,7 @@ class Home_Fragment: Fragment() {
 
     var images = intArrayOf(R.drawable.banner1, R.drawable.banner1, R.drawable.banner1)
     var adapter: HomePageProductAdapter? = null
-    lateinit var list:ArrayList<String>
+    var list:ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null
     lateinit var binding : FragmentHomeBinding
     lateinit var thiscontext: Context
@@ -48,7 +48,7 @@ class Home_Fragment: Fragment() {
 //        var view=inflater.inflate(R.layout.fragment_home, container, false)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         thiscontext=container!!.context
-        list= ArrayList()
+
 
         list.add("Samsung Galaxy j7")
         list.add("iPhone Pro")

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.foamkart.R
 import java.lang.Exception
 
-
 class CartListAdapter(public var product_list: ArrayList<String>, var context: Context) : RecyclerView.Adapter<CartListAdapter.ViewHolder>() {
     lateinit var holder: ViewHolder
 

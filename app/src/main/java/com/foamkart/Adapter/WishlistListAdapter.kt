@@ -73,7 +73,7 @@ class WishlistListAdapter(public var product_list: ArrayList<String>, var contex
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var product_name: TextView
         var img_favret: ImageView
-
+//prinka
 
         init {
             product_name = itemView.findViewById<TextView>(R.id.product_name)

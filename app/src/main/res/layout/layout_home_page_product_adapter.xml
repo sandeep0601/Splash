@@ -8,8 +8,8 @@
         android:id="@+id/item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="5dp"
+        android:layout_margin="2dp"
+        app:cardCornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,8 +20,10 @@
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
-            android:background="@color/white_color">
+            android:background="@color/white_color"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="4dp">
 
             <ImageView
                 android:layout_width="match_parent"

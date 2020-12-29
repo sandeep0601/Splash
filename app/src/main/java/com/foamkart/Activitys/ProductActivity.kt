@@ -22,6 +22,7 @@ class ProductActivity : AppCompatActivity() {
     var linearLayoutManager: LinearLayoutManager? = null
     var adapter: ProductListAdapter? = null
     var TAG="@@ProductActivity"
+    var like_status=false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +41,16 @@ class ProductActivity : AppCompatActivity() {
 
         }
 
-        binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_redcolor)
+        binding.imgFavorite.setOnClickListener {
+            if(like_status) {
+                like_status=false
+                binding.imgFavorite.setImageResource(R.drawable.red_heart)
+            } else {
+                like_status=true
+                binding.imgFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+            }
+        }
+
 
         binding.txtBayNow.setOnClickListener {
             startActivity(Intent(this@ProductActivity,PaymentActivity::class.java))

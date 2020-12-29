@@ -133,20 +133,20 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_gravity="center|left"
                             android:layout_marginTop="8dp"
                             android:orientation="horizontal"
-                            android:paddingStart="35dp">
+                            android:paddingStart="@dimen/txt_15sp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+                                android:layout_gravity="left|center"
                                 android:background="@drawable/shape_round"
                                 android:backgroundTint="#E9F7EF"
                                 android:fontFamily="@font/worksans_medium"
-                                android:foregroundGravity="center|left"
-                                android:gravity="center|left"
+                                android:foregroundGravity="left|center"
+                                android:gravity="left|center"
                                 android:paddingStart="8dp"
                                 android:paddingTop="4dp"
                                 android:paddingEnd="8dp"
@@ -164,8 +164,8 @@
                                 android:background="@drawable/shape_round"
                                 android:backgroundTint="#F2D7D5"
                                 android:fontFamily="@font/worksans_medium"
-                                android:foregroundGravity="center|left"
-                                android:gravity="center|left"
+                                android:foregroundGravity="left"
+                                android:gravity="left"
                                 android:lines="1"
                                 android:paddingStart="8dp"
                                 android:paddingTop="4dp"
