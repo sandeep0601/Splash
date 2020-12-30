@@ -22,6 +22,7 @@ import com.foamkart.Fragment.AccountFragment
 import com.foamkart.Fragment.CartFragment
 import com.foamkart.Fragment.Home_Fragment
 import com.foamkart.Fragment.WishListFragment
+import com.foamkart.Helper.ImageUtils
 import com.foamkart.R
 import com.foamkart.databinding.ActivityDashboardBinding
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -34,6 +35,7 @@ class DashboardActivity : AppCompatActivity()  {
     var TAG="@@"
     var FRAGMENT_OTHER = "FRAGMENT_OTHER"
     private var doubleBackToExitPressedOnce = false
+    private var imageutils: ImageUtils? = null
 
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,12 +51,25 @@ class DashboardActivity : AppCompatActivity()  {
 
 
 
+
+
+
+
+
+
+        setFram(Home_Fragment(),"FRAGMENT_HOME",0)
+        OnClickListener()
+        bottomNavigation()
+
+
+    }
+    fun OnClickListener() {
         binding.includeNavigation.layoutProfile.setOnClickListener {
 
             var operatorDialog : ProfileUpdateDialog
 
             operatorDialog= ProfileUpdateDialog(
-                this@DashboardActivity,"a"
+                this@DashboardActivity,this
             )
             operatorDialog.getWindow()!!.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             operatorDialog.show()
@@ -66,22 +81,23 @@ class DashboardActivity : AppCompatActivity()  {
             var operatorDialog : ProfileUpdateDialog
 
             operatorDialog= ProfileUpdateDialog(
-                this@DashboardActivity,"a"
+                this@DashboardActivity,this
             )
             operatorDialog.getWindow()!!.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             operatorDialog.show()
 
         }
+        binding.includeNavigation.layoutLogout.setOnClickListener {
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
+            }
+            exitDialod()
+        }
+        binding.includeNavigation.layoutAddress.setOnClickListener { startActivity(Intent(this@DashboardActivity,AddressListActivity::class.java)) }
 
-
-
-
-        setFram(Home_Fragment(),"FRAGMENT_HOME",0)
-        set_ClickListener()
-        bottomNavigation()
-
-
+        binding.includeNavigation.layoutOrderHistory.setOnClickListener { startActivity(Intent(this@DashboardActivity,OrderActivity::class.java)) }
     }
+
     fun bottomNavigation() {
         binding.layoutHome.setOnClickListener { setFram(Home_Fragment(),"FRAGMENT_HOME",0) }
         binding.layoutWishlist.setOnClickListener { setFram(WishListFragment(),FRAGMENT_OTHER,1) }
@@ -89,21 +105,17 @@ class DashboardActivity : AppCompatActivity()  {
         binding.layoutAccount.setOnClickListener { setFram(AccountFragment(),FRAGMENT_OTHER,3) }
     }
 
-
-
-
-    @SuppressLint("WrongConstant")
-    fun set_ClickListener() {
-
-        binding.includeNavigation.layoutLogout.setOnClickListener {
-            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                binding.drawerLayout.closeDrawer(GravityCompat.START)
-            }
-            exitDialod()
-        }
-        binding.includeNavigation.layoutAddress.setOnClickListener {
-            startActivity(Intent(this@DashboardActivity,AddressListActivity::class.java))
-        }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        imageutils!!.onActivityResult(requestCode, resultCode, data);
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        imageutils!!.request_permission_result(requestCode, permissions, grantResults);
     }
 
     private fun setFram(fragment: Fragment, name: String,bottom_nev_positiom:Int) {

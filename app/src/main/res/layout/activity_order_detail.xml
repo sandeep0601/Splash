@@ -51,7 +51,10 @@
                             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                             tools:layout_editor_absoluteX="0dp"
                             android:layoutAnimation="@anim/layout_animation"
-                            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -99,7 +102,7 @@
                                         android:fontFamily="@font/worksans_medium"
                                         android:text="SUBTOTAL"
                                         android:textColor="@color/c_gray2"
-                                        android:textSize="@dimen/txt_10sp"
+                                        android:textSize="@dimen/text_small"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintHorizontal_bias="0.0"
@@ -161,7 +164,6 @@
                                     android:layout_weight="0.5"
                                     android:weightSum="2">
 
-
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -169,7 +171,7 @@
                                         android:fontFamily="@font/worksans_medium"
                                         android:text="SHIPPING CHARGE"
                                         android:textColor="@color/c_gray2"
-                                        android:textSize="@dimen/txt_10sp"
+                                        android:textSize="@dimen/text_small"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintHorizontal_bias="0.0"
@@ -239,7 +241,7 @@
                                         android:fontFamily="@font/worksans_medium"
                                         android:text="GRAND TOTAL"
                                         android:textColor="@color/c_gray2"
-                                        android:textSize="@dimen/txt_10sp"
+                                        android:textSize="@dimen/text_small"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintHorizontal_bias="0.0"
@@ -282,7 +284,7 @@
                             android:fontFamily="@font/worksans_medium"
                             android:paddingTop="2dp"
                             android:layout_marginStart="12dp"
-                            android:layout_marginTop="15dp"/>
+                            android:layout_marginTop="25dp"/>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -302,7 +304,8 @@
                             android:orientation="horizontal"
                             android:background="#ffffff"
                             android:minHeight="70dp"
-                            android:layout_marginTop="15dp">
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="12dp">
 
                             <TextView
                                 android:id="@+id/txt_primary"
@@ -335,7 +338,7 @@
                                 android:layout_height="55dp"
                                 android:layout_marginStart="8dp"
                                 android:src="@drawable/ic_baseline_home_24"
-                                android:padding="@dimen/txt_10sp"
+                                android:padding="@dimen/text_small"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"

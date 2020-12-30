@@ -53,7 +53,7 @@
                         android:tint="@color/white_color" />
 
                     <TextView
-                        android:id="@+id/txt_username"
+                        android:id="@+id/txt_edit_photo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
