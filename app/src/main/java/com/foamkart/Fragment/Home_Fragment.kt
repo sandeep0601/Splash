@@ -17,9 +17,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.foamkart.Activitys.ProductListActivity
 import com.foamkart.Adapter.HomePageProductAdapter
+import com.foamkart.Adapter.HomePageTopCategoryAdapter
 import com.foamkart.Adapter.ViewPagerAdapter
 import com.foamkart.R
 import com.foamkart.databinding.FragmentHomeBinding
@@ -55,11 +57,6 @@ class Home_Fragment: Fragment() {
         list.add("Samsung Galaxy j7")
         list.add("iPhone Pro")
         list.add("Product 1")
-        list.add("Product 2")
-        list.add("AA")
-        list.add("AA")
-        list.add("AA")
-        list.add("AA")
 
         binding.txtMore.setOnClickListener {
             startActivity(Intent(context,ProductListActivity::class.java))
@@ -81,9 +78,25 @@ class Home_Fragment: Fragment() {
         binding.mainRecycler2.adapter=adapter
 
 
+        setTopCategory()
         set_ClickListener()
         return binding.root
     }
+    fun setTopCategory() {
+
+        binding.mainRecycler.isNestedScrollingEnabled=false
+        binding.mainRecycler2.isNestedScrollingEnabled=false
+        binding.recyclerviewCategory.isNestedScrollingEnabled=false
+
+        var adapter: HomePageTopCategoryAdapter? = null
+        linearLayoutManager = GridLayoutManager(thiscontext, 5)
+        binding.recyclerviewCategory!!.layoutManager = linearLayoutManager
+        binding.recyclerviewCategory!!.itemAnimator = DefaultItemAnimator()
+        adapter = HomePageTopCategoryAdapter(list,context!!)
+        binding.recyclerviewCategory.adapter=adapter
+
+    }
+
     @SuppressLint("WrongConstant")
     fun set_ClickListener() {
         var drawer_layout: DrawerLayout=activity!!.findViewById(R.id.drawer_layout)

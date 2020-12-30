@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activitys.Demo">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.prasad.imagepickerex.MainActivity"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_above="@+id/imagePickBtn"
+                android:layout_centerVertical="true"
+                android:layout_margin="20dp"
+                android:background="#E8E8E8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id = "@+id/list"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:divider = "#000"
+                android:dividerHeight = "1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:footerDividersEnabled = "false"
+                android:headerDividersEnabled = "false"
+                android:layout_marginBottom="100dp"/>
+
+            <Button
+                android:id="@+id/imagePickBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="20dp"
+                android:background="@color/colorPrimary"
+                android:text="Pick Image"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="20dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

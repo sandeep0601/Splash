@@ -85,7 +85,7 @@ class ProductActivity : AppCompatActivity() {
         list.add("AA")
         list.add("AA")
 
-        linearLayoutManager = GridLayoutManager(this, 2)
+        linearLayoutManager = GridLayoutManager(this, 3)
         binding.mainRecycler!!.layoutManager = linearLayoutManager
         binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
         adapter = ProductListAdapter(list, this@ProductActivity)

@@ -31,7 +31,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="150dp"
                 android:src="@drawable/mobile_image"
                 android:scaleType="centerInside"
                 android:layout_margin="2dp"/>
@@ -52,7 +52,9 @@
                     android:gravity="center|left"
                     android:text="iPhone 10x pro."
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_title"/>
+                    android:textSize="@dimen/text"
+                    android:lines="1"/>
+
                 <TextView
                     android:paddingEnd="25dp"
                     android:layout_width="match_parent"

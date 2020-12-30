@@ -4,20 +4,19 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.Gravity
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.foamkart.Custom.ProfileUpdateDialog
 import com.foamkart.FoamkartApp
 import com.foamkart.Fragment.AccountFragment
 import com.foamkart.Fragment.CartFragment
@@ -47,6 +46,32 @@ class DashboardActivity : AppCompatActivity()  {
 
 
 
+
+
+
+        binding.includeNavigation.layoutProfile.setOnClickListener {
+
+            var operatorDialog : ProfileUpdateDialog
+
+            operatorDialog= ProfileUpdateDialog(
+                this@DashboardActivity,"a"
+            )
+            operatorDialog.getWindow()!!.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            operatorDialog.show()
+
+        }
+
+        binding.includeNavigation.txtProfile.setOnClickListener {
+
+            var operatorDialog : ProfileUpdateDialog
+
+            operatorDialog= ProfileUpdateDialog(
+                this@DashboardActivity,"a"
+            )
+            operatorDialog.getWindow()!!.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            operatorDialog.show()
+
+        }
 
 
 

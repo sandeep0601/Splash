@@ -89,7 +89,7 @@
                             black:tint="#ff858585" />
 
                         <TextView
-                            android:id="@+id/profile_text"
+                            android:id="@+id/txt_profile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="25dp"

@@ -1,22 +1,16 @@
 package com.foamkart.Activitys
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.foamkart.Adapter.AddressListAdapter
 import com.foamkart.Adapter.CartListAdapter
 import com.foamkart.Adapter.CheckOutAddressAdapter
-import com.foamkart.Adapter.HomePageProductAdapter
-import com.foamkart.Custom.CustomDialog
-import com.foamkart.Custom.QrDialog
+import com.foamkart.Custom.UserAddressDialog
 import com.foamkart.R
-import com.foamkart.databinding.ActivityLoginBinding
 import com.foamkart.databinding.ActivityOrderCheckoutBinding
-import com.foamkart.databinding.FragmentHomeBinding
 
 class OrderCheckoutActivity : AppCompatActivity() {
     lateinit var binding: ActivityOrderCheckoutBinding
@@ -43,11 +37,11 @@ class OrderCheckoutActivity : AppCompatActivity() {
 
         binding.layoutAddNewAddress.setOnClickListener {
 
-            var operatorDialog : CustomDialog
+            var operatorDialog : UserAddressDialog
 
-            operatorDialog= CustomDialog(
-                    this@OrderCheckoutActivity,"a"
-                )
+            operatorDialog= UserAddressDialog(
+                this@OrderCheckoutActivity, "a"
+            )
             operatorDialog.getWindow()!!.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             operatorDialog.show()
 
