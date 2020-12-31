@@ -31,6 +31,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Created by venkataprasad.kukka on 01-03-2017.
+ */
+
 public class ImageUtils {
 
     Context context;
@@ -48,7 +52,7 @@ public class ImageUtils {
 
         this.context = act;
         this.current_activity = act;
-        imageAttachment_callBack = (ImageUtils.ImageAttachmentListener) context;
+        imageAttachment_callBack = (ImageAttachmentListener) context;
     }
 
     /**
@@ -677,6 +681,12 @@ public class ImageUtils {
         }
 
     }
+
+
+    /**
+     * @param file
+     * @param bmp
+     */
     public void store_image(File file, Bitmap bmp) {
         try {
             FileOutputStream out = new FileOutputStream(file);

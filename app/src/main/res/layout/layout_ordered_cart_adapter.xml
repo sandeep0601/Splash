@@ -5,11 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="1dp"
     android:layout_marginEnd="1dp"
-    android:layout_marginTop="1dp"
-    android:elevation="1dp">
+    android:layout_marginTop="1dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/item"
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="4dp"
@@ -20,7 +19,9 @@
         app:layout_constraintVertical_bias="0.0"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginTop="1dp">
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_goneMarginEnd="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,7 +33,8 @@
                 android:id="@+id/imageView2"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:layout_margin="1dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/mobile_image"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -51,8 +53,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.25">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/product_name"
@@ -67,71 +68,75 @@
                     android:textSize="@dimen/text" />
 
                 <TextView
+                    android:id="@+id/txt_des"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/worksans_medium"
-                    android:foregroundGravity="center|left"
-                    android:gravity="center|left"
-                    android:lines="3"
+                    android:foregroundGravity="center|left|top"
+                    android:gravity="center|left|top"
+                    android:layout_marginTop="2dp"
+                    android:lines="2"
                     android:paddingEnd="4dp"
-                    android:text="This is the simplest method you just have to set strikethrough flag on your TextView as,"
+                    android:text="New ProductNew Product"
                     android:textColor="@color/c_gray1"
-                    android:textSize="@dimen/text_small" />
+                    android:textSize="@dimen/text_small"/>
+
+
+
+
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="85dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="5dp"
                 android:foregroundGravity="center|right"
                 android:gravity="center|right"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="4dp"
+                android:paddingEnd="2dp">
 
-                <ImageView
-                    android:id="@+id/img_favret"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center|right"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/worksans_medium"
-                    android:foregroundGravity="center|right"
-                    android:gravity="center|right"
-                    android:padding="4dp"
-                    android:src="@drawable/ic_baseline_favorite_border_redcolor" />
+
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/worksans_medium"
-                    android:foregroundGravity="center|right"
-                    android:gravity="center|right"
-                    android:text="@string/crossed_price"
-                    android:textColor="@color/c_gray1"
-                    android:textSize="@dimen/text_small"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="4dp"
                     android:fontFamily="@font/worksans_medium"
                     android:foregroundGravity="center|right"
                     android:gravity="center|right"
                     android:text="₹ 9999"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_quantity"
+                        android:paddingStart="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="QTY:2"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_small"
+                        android:layout_marginTop="1dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/worksans_medium"
+                        android:layout_marginBottom="1dp"
+                        android:foregroundGravity="center"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
 
 
             </LinearLayout>

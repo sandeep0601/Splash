@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.foamkart.Activitys.ProductListActivity
+import com.foamkart.Adapter.HomePageProduct2Adapter
 import com.foamkart.Adapter.HomePageProductAdapter
 import com.foamkart.Adapter.HomePageTopCategoryAdapter
 import com.foamkart.Adapter.ViewPagerAdapter
@@ -32,7 +33,7 @@ class Home_Fragment: Fragment() {
 
 
     var images = intArrayOf(R.drawable.banner1, R.drawable.banner1, R.drawable.banner1)
-    var adapter: HomePageProductAdapter? = null
+
     var list:ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null
     lateinit var binding : FragmentHomeBinding
@@ -61,21 +62,26 @@ class Home_Fragment: Fragment() {
         binding.txtMore.setOnClickListener {
             startActivity(Intent(context,ProductListActivity::class.java))
         }
+        binding.txtMORE2.setOnClickListener {
+            startActivity(Intent(context,ProductListActivity::class.java))
+        }
         binding.viewpagerSlider.adapter = ViewPagerAdapter(context, images)
 
+        binding.mainRecycler!!.isNestedScrollingEnabled=false
+        binding.mainRecycler2!!.isNestedScrollingEnabled=false
 
 
         linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.mainRecycler!!.layoutManager = linearLayoutManager
         binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
-        adapter = HomePageProductAdapter(list,context!!)
-        binding.mainRecycler.adapter=adapter
+        var mHomePageProductAdapter = HomePageProductAdapter(list,context!!)
+        binding.mainRecycler.adapter=mHomePageProductAdapter
 
-        linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        linearLayoutManager = GridLayoutManager(context, 2)
         binding.mainRecycler2!!.layoutManager = linearLayoutManager
         binding.mainRecycler2!!.itemAnimator = DefaultItemAnimator()
-        adapter = HomePageProductAdapter(list,context!!)
-        binding.mainRecycler2.adapter=adapter
+        var  mHomePageProduct2Adapter = HomePageProduct2Adapter(list,context!!)
+        binding.mainRecycler2.adapter=mHomePageProduct2Adapter
 
 
         setTopCategory()

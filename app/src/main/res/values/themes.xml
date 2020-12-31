@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.FoamKart" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/c_red</item>
+        <item name="colorPrimary">@color/white_color</item>
         <item name="colorPrimaryVariant">@color/color_green</item>
         <item name="colorOnPrimary">@color/white_color</item>
         <!-- Secondary brand color. -->

@@ -10,7 +10,6 @@ import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.R
 import com.foamkart.databinding.ActivityProductlistBinding
 
-
 class ProductListActivity : AppCompatActivity() {
     var list:ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null

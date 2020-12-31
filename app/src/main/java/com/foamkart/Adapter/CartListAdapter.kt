@@ -40,16 +40,29 @@ class CartListAdapter(public var product_list: ArrayList<String>, var context: C
         }
 
         holder.img_plus.setOnClickListener {
-            holder.txt_quantity.setText((holder.txt_quantity.text.toString().trim().toInt()+1).toString())
+//            holder.txt_quantity.setText((holder.txt_quantity.text.toString().trim().toInt()+1).toString())
+
+
+
+            var qu= (holder.txt_quantity.text.toString().trim().toInt()+1).toString()
+            holder.txt_quantity.setText(qu.toString())
+            holder.txt_quntity2.setText(qu.toString())
+
+            holder.txt_price.setText((holder.txt_single_product_amt.text.toString().trim().toInt() * 2).toString())
         }
+
         holder.img_minus.setOnClickListener {
             if(holder.txt_quantity.text.toString().trim().toInt()>0) {
-                holder.txt_quantity.setText((holder.txt_quantity.text.toString().trim().toInt()-1).toString())
+
+                var qu= (holder.txt_quantity.text.toString().trim().toInt()-1).toString()
+                holder.txt_quantity.setText(qu.toString())
+                holder.txt_quntity2.setText(qu.toString())
+
+                holder.txt_price.setText((holder.txt_single_product_amt.text.toString().trim().toInt() * holder.txt_quntity2.text.toString().trim().toInt()).toString())
             } else {
-
             }
-
         }
+
 
 
 
@@ -99,9 +112,12 @@ class CartListAdapter(public var product_list: ArrayList<String>, var context: C
         var product_name: TextView
         var txt_des: TextView
         var txt_quantity: TextView
+        var txt_price: TextView
+        var txt_quntity2: TextView
         var img_delet: ImageView
         var img_plus: ImageView
         var img_minus: ImageView
+        var txt_single_product_amt: TextView
 
 
         init {
@@ -111,6 +127,9 @@ class CartListAdapter(public var product_list: ArrayList<String>, var context: C
             img_plus = itemView.findViewById(R.id.img_plus)
             img_minus = itemView.findViewById(R.id.img_minus)
             txt_quantity = itemView.findViewById(R.id.txt_quantity)
+            txt_price = itemView.findViewById(R.id.txt_price)
+            txt_single_product_amt = itemView.findViewById(R.id.txt_single_product_amt)
+            txt_quntity2 = itemView.findViewById(R.id.txt_quntity2)
             itemView.setOnClickListener {
             }
         }

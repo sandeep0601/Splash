@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baoyachi.stepview.VerticalStepView
 import com.foamkart.Adapter.CartListAdapter
+import com.foamkart.Adapter.OrderedProductAdapter
 import com.foamkart.R
 import com.foamkart.databinding.ActivityOrderDetailBinding
 
@@ -23,7 +24,9 @@ class OrderDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_order_detail)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_order_detail)
         binding.tootbar.title.setText("Order Details")
+
         setCartList()
+        OnClickListener()
 
         mSetpview0 = binding.stepView0
         val list0: MutableList<String> = ArrayList()
@@ -47,7 +50,9 @@ class OrderDetailActivity : AppCompatActivity() {
             .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(this@OrderDetailActivity,                 R.drawable.attention             ))
             .setTextSize(15)    //设置StepsViewIndicator AttentionIcon
 
-
+    }
+    fun OnClickListener() {
+        binding.tootbar.imgBack.setOnClickListener { finish() }
     }
     fun setCartList() {
         listCart.add("Home")
@@ -56,12 +61,12 @@ class OrderDetailActivity : AppCompatActivity() {
 //        listCart.add("Punjab")
 
         var linearLayoutManager: LinearLayoutManager? = null
-        var adapter: CartListAdapter? = null
+        var adapter: OrderedProductAdapter? = null
 
         linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.recyclerViewCart!!.layoutManager = linearLayoutManager
         binding.recyclerViewCart!!.itemAnimator = DefaultItemAnimator()
-        adapter = CartListAdapter(listCart, this!!)
+        adapter = OrderedProductAdapter(listCart, this!!)
         binding.recyclerViewCart.adapter=adapter
     }
 

@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.foamkart.Adapter.HomePageProductAdapter
 import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.Adapter.ProductSliderAdapter
 import com.foamkart.R
@@ -20,9 +21,9 @@ class ProductActivity : AppCompatActivity() {
     lateinit var binding: ActivitySingleProductBinding
     var list:ArrayList<String> = ArrayList()
     var linearLayoutManager: LinearLayoutManager? = null
-    var adapter: ProductListAdapter? = null
+    var adapter: HomePageProductAdapter? = null
     var TAG="@@ProductActivity"
-    var like_status=false
+    var like_status=true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,10 +86,10 @@ class ProductActivity : AppCompatActivity() {
         list.add("AA")
         list.add("AA")
 
-        linearLayoutManager = GridLayoutManager(this, 3)
+        linearLayoutManager = LinearLayoutManager(this@ProductActivity, LinearLayoutManager.HORIZONTAL, false)
         binding.mainRecycler!!.layoutManager = linearLayoutManager
         binding.mainRecycler!!.itemAnimator = DefaultItemAnimator()
-        adapter = ProductListAdapter(list, this@ProductActivity)
+        adapter = HomePageProductAdapter(list, this@ProductActivity)
         binding.mainRecycler.adapter=adapter
     }
 }

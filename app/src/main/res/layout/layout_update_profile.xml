@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorwhite">
 
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +64,8 @@
                         android:gravity="center"
                         android:text="Edit Profile Photo"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text" />
+                        android:textSize="@dimen/text"
+                        android:padding="4dp"/>
 
 
                 </LinearLayout>

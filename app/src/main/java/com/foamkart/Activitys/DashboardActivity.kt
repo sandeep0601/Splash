@@ -1,14 +1,19 @@
 package com.foamkart.Activitys
 
+import android.R.attr
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.PorterDuff
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -25,11 +30,13 @@ import com.foamkart.Fragment.WishListFragment
 import com.foamkart.Helper.ImageUtils
 import com.foamkart.R
 import com.foamkart.databinding.ActivityDashboardBinding
+import com.foamkart.databinding.LayoutUpdateProfileBinding
+import com.google.android.material.internal.ContextUtils.getActivity
 import kotlinx.android.synthetic.main.activity_dashboard.*
 import kotlinx.android.synthetic.main.activity_splach_screen.*
 
 
-class DashboardActivity : AppCompatActivity()  {
+class DashboardActivity : AppCompatActivity() , ImageUtils.ImageAttachmentListener   {
     var mSlideState=false
     lateinit var binding:ActivityDashboardBinding
     var TAG="@@"
@@ -41,6 +48,8 @@ class DashboardActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+        imageutils = ImageUtils(this)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
         binding.includeNavigation.navigationView.bringToFront()
 
@@ -52,24 +61,28 @@ class DashboardActivity : AppCompatActivity()  {
 
 
 
-
-
-
-
-
-        setFram(Home_Fragment(),"FRAGMENT_HOME",0)
+        setFram(Home_Fragment(), "FRAGMENT_HOME", 0)
         OnClickListener()
         bottomNavigation()
 
 
     }
+
+
+    fun getImageFromGallery() {
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        this@DashboardActivity.startActivityForResult(intent, 101)
+    }
+
     fun OnClickListener() {
         binding.includeNavigation.layoutProfile.setOnClickListener {
 
             var operatorDialog : ProfileUpdateDialog
 
             operatorDialog= ProfileUpdateDialog(
-                this@DashboardActivity,this
+                    this@DashboardActivity, this
             )
             operatorDialog.getWindow()!!.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             operatorDialog.show()
@@ -81,7 +94,7 @@ class DashboardActivity : AppCompatActivity()  {
             var operatorDialog : ProfileUpdateDialog
 
             operatorDialog= ProfileUpdateDialog(
-                this@DashboardActivity,this
+                    this@DashboardActivity, this@DashboardActivity
             )
             operatorDialog.getWindow()!!.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             operatorDialog.show()
@@ -93,32 +106,42 @@ class DashboardActivity : AppCompatActivity()  {
             }
             exitDialod()
         }
-        binding.includeNavigation.layoutAddress.setOnClickListener { startActivity(Intent(this@DashboardActivity,AddressListActivity::class.java)) }
+        binding.includeNavigation.layoutAddress.setOnClickListener { startActivity(Intent(this@DashboardActivity, AddressListActivity::class.java)) }
 
-        binding.includeNavigation.layoutOrderHistory.setOnClickListener { startActivity(Intent(this@DashboardActivity,OrderActivity::class.java)) }
+        binding.includeNavigation.layoutOrderHistory.setOnClickListener { startActivity(Intent(this@DashboardActivity, OrderActivity::class.java)) }
     }
 
     fun bottomNavigation() {
-        binding.layoutHome.setOnClickListener { setFram(Home_Fragment(),"FRAGMENT_HOME",0) }
-        binding.layoutWishlist.setOnClickListener { setFram(WishListFragment(),FRAGMENT_OTHER,1) }
-        binding.layoutCart.setOnClickListener { setFram(CartFragment(),FRAGMENT_OTHER,2) }
-        binding.layoutAccount.setOnClickListener { setFram(AccountFragment(),FRAGMENT_OTHER,3) }
+        binding.layoutHome.setOnClickListener { setFram(Home_Fragment(), "FRAGMENT_HOME", 0) }
+        binding.layoutWishlist.setOnClickListener { setFram(WishListFragment(), FRAGMENT_OTHER, 1) }
+        binding.layoutCart.setOnClickListener { setFram(CartFragment(), FRAGMENT_OTHER, 2) }
+        binding.layoutAccount.setOnClickListener { setFram(AccountFragment(), FRAGMENT_OTHER, 3) }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        imageutils!!.onActivityResult(requestCode, resultCode, data);
+//        imageutils!!.onActivityResult(requestCode, resultCode, data);
+
+        Log.e(TAG, "onActivityResult: ")
+   /*     if (data?.getData() != null) {
+
+            var binding1: LayoutUpdateProfileBinding?=null
+
+//            binding1 = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.layout_update_profile, null, false)
+//            binding1 = DataBindingUtil.setContentView(this, R.layout.layout_update_profile)
+
+            var i:ImageView=findViewById(R.id.img_user_image)
+            i.setImageURI(data?.data)
+
+        }*/
     }
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         imageutils!!.request_permission_result(requestCode, permissions, grantResults);
     }
 
-    private fun setFram(fragment: Fragment, name: String,bottom_nev_positiom:Int) {
+    private fun setFram(fragment: Fragment, name: String, bottom_nev_positiom: Int) {
         var fragmentManager: FragmentManager = supportFragmentManager
         val fragmentTransaction =
             fragmentManager.beginTransaction()
@@ -134,14 +157,14 @@ class DashboardActivity : AppCompatActivity()  {
         // 3. After the commit, if the fragment is not an "home type" the back stack is changed, triggering the
         // OnBackStackChanged callback
         fragmentManager.addOnBackStackChangedListener(object :
-            FragmentManager.OnBackStackChangedListener {
+                FragmentManager.OnBackStackChangedListener {
             override fun onBackStackChanged() {
                 // If the stack decreases it means I clicked the back button
                 if (fragmentManager.backStackEntryCount <= count) {
                     // pop all the fragment and remove the listener
                     fragmentManager.popBackStack(
-                        FRAGMENT_OTHER,
-                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                            FRAGMENT_OTHER,
+                            FragmentManager.POP_BACK_STACK_INCLUSIVE
                     )
                     fragmentManager.removeOnBackStackChangedListener(this)
                     // set the home button selected
@@ -152,30 +175,31 @@ class DashboardActivity : AppCompatActivity()  {
         })
         Log.d(TAG, "onBackStackChanged:1 $count")
 
-        binding.itemHome.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
-        binding.itemWishList.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
-        binding.itemCart.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
-        binding.itemAccount.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
+        binding.itemHome.setColorFilter(ContextCompat.getColor(this, R.color.item_color), PorterDuff.Mode.SRC_IN)
+        binding.itemWishList.setColorFilter(ContextCompat.getColor(this, R.color.item_color), PorterDuff.Mode.MULTIPLY)
+        binding.itemCart.setColorFilter(ContextCompat.getColor(this, R.color.item_color), PorterDuff.Mode.SRC_IN)
+        binding.itemAccount.setColorFilter(ContextCompat.getColor(this, R.color.item_color), PorterDuff.Mode.SRC_IN)
 
         when(bottom_nev_positiom) {
-            0 -> { binding.itemHome.setColorFilter(R.color.color_green) }
-            1 -> { binding.itemWishList.setColorFilter(R.color.color_green)}
-            2 -> { binding.itemCart.setColorFilter(R.color.color_green) }
-            3 -> { binding.itemAccount.setColorFilter(R.color.color_green) }
+            0 -> {
+                binding.itemHome.setColorFilter(ContextCompat.getColor(this, R.color.color_green), android.graphics.PorterDuff.Mode.SRC_IN)
+            }
+            1 -> {
+
+                binding.itemWishList.setColorFilter(ContextCompat.getColor(this, R.color.color_green), android.graphics.PorterDuff.Mode.SRC_IN)
+            }
+            2 -> {
+                binding.itemCart.setColorFilter(ContextCompat.getColor(this, R.color.color_green), android.graphics.PorterDuff.Mode.SRC_IN)
+            }
+            3 -> {
+                binding.itemAccount.setColorFilter(ContextCompat.getColor(this, R.color.color_green), android.graphics.PorterDuff.Mode.SRC_IN)
+            }
         }
 
     }
 
 
-    fun setFram1(fram: Fragment,bottom_nev_positiom:Int) {
+    fun setFram1(fram: Fragment, bottom_nev_positiom: Int) {
         val fragmentManager: FragmentManager = supportFragmentManager
         val fragmentTransaction =
             fragmentManager.beginTransaction()
@@ -183,23 +207,31 @@ class DashboardActivity : AppCompatActivity()  {
         fragmentTransaction.commit()
 
         binding.itemHome.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
+                ContextCompat.getColor(this, R.color.item_color),
+                PorterDuff.Mode.MULTIPLY)
         binding.itemWishList.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
+                ContextCompat.getColor(this, R.color.item_color),
+                PorterDuff.Mode.MULTIPLY)
         binding.itemCart.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
+                ContextCompat.getColor(this, R.color.item_color),
+                PorterDuff.Mode.MULTIPLY)
         binding.itemAccount.setColorFilter(
-            ContextCompat.getColor(this,R.color.item_color),
-            PorterDuff.Mode.MULTIPLY)
+                ContextCompat.getColor(this, R.color.item_color),
+                PorterDuff.Mode.MULTIPLY)
 
         when(bottom_nev_positiom) {
-            0 -> { binding.itemHome.setColorFilter(R.color.color_green) }
-            1 -> { binding.itemWishList.setColorFilter(R.color.color_green)}
-            2 -> { binding.itemCart.setColorFilter(R.color.color_green) }
-            3 -> { binding.itemAccount.setColorFilter(R.color.color_green) }
+            0 -> {
+                binding.itemHome.setColorFilter(R.color.color_green)
+            }
+            1 -> {
+                binding.itemWishList.setColorFilter(R.color.color_green)
+            }
+            2 -> {
+                binding.itemCart.setColorFilter(R.color.color_green)
+            }
+            3 -> {
+                binding.itemAccount.setColorFilter(R.color.color_green)
+            }
         }
     }
 
@@ -211,14 +243,15 @@ class DashboardActivity : AppCompatActivity()  {
                     DialogInterface.OnClickListener { dialog, id ->
                         val intent = Intent(FoamkartApp.myappContext, SplashScreen::class.java)
                         intent.flags = (Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        FoamkartApp.myappContext!!.startActivity(intent) })
+                        FoamkartApp.myappContext!!.startActivity(intent)
+                    })
             .setNegativeButton("No", null)
             .show()
     }
 
     override fun onBackPressed() {
 
-        Log.d(TAG, "onBackPressed: "+supportFragmentManager.fragments.last().id)
+        Log.d(TAG, "onBackPressed: " + supportFragmentManager.fragments.last().id)
 
         if(supportFragmentManager.fragments.last().id==2131361997) {
             if (doubleBackToExitPressedOnce) {
@@ -236,8 +269,8 @@ class DashboardActivity : AppCompatActivity()  {
 
 
     }
-}
 
-/*
-* 1 padding in login,SINGuP screen
-* 2 PADDING IN LISTING*/
+    override fun image_attachment(from: Int, filename: String?, file: Bitmap?, uri: Uri?) {
+//        TODO("Not yet implemented")
+    }
+}

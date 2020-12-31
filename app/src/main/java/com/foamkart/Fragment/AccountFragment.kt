@@ -19,6 +19,7 @@ import com.foamkart.Activitys.OrderActivity
 import com.foamkart.Activitys.SplashScreen
 import com.foamkart.Adapter.ProductListAdapter
 import com.foamkart.Adapter.WishlistListAdapter
+import com.foamkart.Custom.ProfileUpdateDialog
 import com.foamkart.FoamkartApp
 import com.foamkart.R
 import com.foamkart.databinding.FragmentAccountBinding
@@ -59,6 +60,7 @@ class AccountFragment: Fragment() {
 
 
 
+
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -74,5 +76,6 @@ class AccountFragment: Fragment() {
                 .setNegativeButton("No", null)
                 .show()
     }
+
 
 }

@@ -25,6 +25,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+        startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
+
         binding.btnLogin.setOnClickListener {
             startActivity(Intent(this@LoginActivity,DashboardActivity::class.java))
             finish()

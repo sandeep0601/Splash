@@ -90,13 +90,14 @@
                     android:layout_marginTop="2dp">
 
                     <ImageView
-                        android:id="@+id/img_plus"
+                        android:id="@+id/img_minus"
                         android:layout_width="@dimen/txt_20sp"
                         android:layout_height="@dimen/txt_20sp"
-                        android:src="@drawable/add"
+                        android:src="@drawable/minus"
                         android:padding="2dp"
                         android:layout_weight="1"
-                        app:tint="@color/black"/>
+                        app:tint="@color/black" />
+
 
                     <TextView
                         android:id="@+id/txt_quantity"
@@ -114,13 +115,13 @@
                         android:foregroundGravity="center"
                         android:layout_weight="1"/>
                     <ImageView
-                        android:id="@+id/img_minus"
+                        android:id="@+id/img_plus"
                         android:layout_width="@dimen/txt_20sp"
                         android:layout_height="@dimen/txt_20sp"
-                        android:src="@drawable/minus"
+                        android:src="@drawable/add"
                         android:padding="2dp"
                         android:layout_weight="1"
-                        app:tint="@color/black" />
+                        app:tint="@color/black"/>
                 </LinearLayout>
 
 
@@ -152,40 +153,90 @@
                     android:gravity="center|right"
                     android:src="@drawable/trash"/>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="right|center"
+                    android:gravity="right|center"
+                    android:foregroundGravity="right|center">
+
+                    <TextView
+                        android:id="@+id/txt_single_product_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="2dp"
+                        android:fontFamily="@font/worksans_medium"
+                        android:foregroundGravity="center|right"
+                        android:gravity="center|right"
+                        android:text="9999"
+                        android:textColor="@color/c_gray2"
+                        android:textSize="@dimen/text_small_extra"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textView6"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="2dp"
+                        android:fontFamily="@font/worksans_medium"
+                        android:foregroundGravity="center|right"
+                        android:gravity="center|right"
+                        android:text="*"
+                        android:textAlignment="center"
+                        android:textColor="@color/c_gray2"
+                        android:textSize="@dimen/text_small_extra"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_quntity2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/worksans_medium"
+                        android:foregroundGravity="center|right"
+                        android:gravity="center|right"
+                        android:text="1"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/c_gray2"
+                        android:textSize="@dimen/text_small_extra"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/textView6"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </LinearLayout>
+
 
                 <TextView
+                    android:id="@+id/txt_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/worksans_medium"
                     android:foregroundGravity="center|right"
                     android:gravity="center|right"
-                    android:text="₹ 9999"
+                    android:text="9999"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text"
                     android:textStyle="bold"
                     android:layout_marginBottom="4dp"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:paddingStart="2dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="QTY:2"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textSize="@dimen/text_small"
-                        android:layout_marginTop="1dp"
-                        android:textColor="@color/black"
-                        android:fontFamily="@font/worksans_medium"
-                        android:layout_marginBottom="1dp"
-                        android:foregroundGravity="center"
-                        android:layout_weight="1"/>
-                </LinearLayout>
 
 
 

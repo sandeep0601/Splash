@@ -102,8 +102,9 @@
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:foregroundGravity="center"
-                            android:src="@drawable/ic_baseline_home_24"
-                            android:layout_gravity="center" />
+                            android:src="@drawable/ic_baseline_home"
+                            android:layout_gravity="center"
+                            />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -132,10 +133,12 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:foregroundGravity="center"
-                            android:src="@drawable/ic_baseline_favorite_border_24"
+                            android:src="@drawable/heart"
+                            android:padding="@dimen/txt_3sp"
                             black:layout_constraintEnd_toEndOf="parent"
                             black:layout_constraintStart_toStartOf="parent"
-                            black:layout_constraintTop_toTopOf="parent" />
+                            black:layout_constraintTop_toTopOf="parent"
+                            black:tint="#414141" />
 
                         <TextView
                             android:id="@+id/textView"
@@ -185,6 +188,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:foregroundGravity="center"
+
                             android:src="@drawable/ic_baseline_shopping_cart_24"
                             black:layout_constraintEnd_toEndOf="parent"
                             black:layout_constraintStart_toStartOf="parent"
@@ -238,6 +242,7 @@
                             android:layout_height="25dp"
                             android:layout_gravity="center"
                             android:foregroundGravity="center"
+
                             android:src="@drawable/ic_baseline_account_circle_24"
                             black:layout_constraintEnd_toEndOf="parent"
                             black:layout_constraintStart_toStartOf="parent"
